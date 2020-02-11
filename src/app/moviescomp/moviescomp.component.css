@@ -1,0 +1,17 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+.page-area{
+  margin: 0;
+  padding: 0;
+}
+.rate{
+    color: orange;
+}
+p .btn{
+    background-color: #fdfdfd;
+    border-radius: 15px;
+    box-shadow: 0 0 5px blue;
+    width: 80px;
+    padding: 5px;
+    font-weight: bold;
+    color: #87ceeb;
+}

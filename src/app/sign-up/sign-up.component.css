@@ -1,0 +1,22 @@
+.page-area{
+    background-image: url(../../assets/signup1.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white;
+    
+}
+.form-control{
+    border: 0;
+    border-bottom: 1px solid gray;
+}
+.form-text text-muted{
+    font-size: 8px;
+}
+.form-control :hover{
+    border: 0;
+}
+input.ng-invalid.ng-touched{
+  border-color: red;
+  color: red;
+}

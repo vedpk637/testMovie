@@ -1,0 +1,55 @@
+<div class="page-area">
+    <div class="col-md-12">
+        <div class="row  justify-content-center" style="background-color: rgb(113, 210, 248); height: 100px;">
+            <!-- movie search box start-->
+            <div class="input-group mb-3 col-md-6">
+                <input type="text" class="form-control mt-4" [(ngModel)]="searchText" placeholder="Search movies.."
+                    style="border-radius: 15px">
+            </div>
+            <!-- movie search box end-->
+        </div>
+    </div>
+    <div class="container mt-2">
+         <!-- for sorting movie-->
+         <p class="text-sort" style="text-align: center; font-weight: bold;">Sort : <button class="btn btn-default btn-sm mx-1" (click)="sortByName()">By Name</button>
+            <button class="btn btn-default btn-sm mx-1" (click)="sortByYear()">By Year</button>
+            <button class="btn btn-default btn-sm mx-1" (click)="sortByRating()">By Rating</button>
+        </p>
+         <!-- for sorting movie control ends-->
+         <!-- movie list starts -->
+        <div class="row row-cols-1 row-cols-md-3 mt-5">
+            <div class="col mb-4"
+                *ngFor="let movie of movieList | filter : searchText | paginate: { itemsPerPage: 9, currentPage: p }; let i = index">
+                <div class="card h-100" style="border: 0px;  border-radius: 10px; box-shadow: 0 0 13px ;">
+                    <img src="{{movie.imgurl}}" class="card-img-top p-1" style="height:220px; border-radius: 10px;"
+                        alt="...">
+                    <div class="row card-body">
+                        <div class="col-sm-8">
+                            <a class="card-text" style="font-size: 14px; font-weight: bold;" routerLink="/searchedMovie" (click)="selectedMovie(movie)">{{movie.name}}</a>
+                        </div>
+                 <!-- star rating and movie year starts -->
+                        <div class="col-sm-4">
+                            <span *ngFor="let star of movie.starArray; let i = index">
+                                <i [style.color]="movie.starArray[i].isRated ? 'SILVER': 'orange'" class="fa fa-star"></i>
+                            </span>
+                            <h6>Year: {{movie.year}}</h6>
+                        </div>
+                <!-- star rating and movie year ends -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row justify-content-center  py-4">
+                    <!-- <div *ngIf = "showButton" class="btn btn-success btn-sm mb-4 mx-2 my-2" (pageChange)="p=$event" (click) = "loaddata()">Load More</div>
+                    <div *ngIf = "backButton" class="btn btn-success btn-sm mb-4 mx-2 my-2" (click) = "loadbackdata()">BACK</div> -->
+                    <ul class="pagination py-4">  
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

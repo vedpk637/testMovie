@@ -1,0 +1,12 @@
+
+.btn{
+    color: white;
+    border-color: white;
+    border-width: 2px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    
+}
+.btn :hover{
+    background-color: #fdfdfd;
+}

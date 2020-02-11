@@ -1,0 +1,13 @@
+<nav class="navbar navbar-light bg-dark"  *ngIf = "isHeaderBlock">
+    <div>
+        <button class="btn" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf = "isBackSelected">Back</button>
+    </div>
+    <div class="ml-auto">
+        <div *ngIf="!isLoggedIn">
+        <button class="btn btn-default" style="border-radius: 20px; margin-right: 10px;" type="submit" routerLink="/sign-up" (click)="onLogIn()">LogIn</button>
+        </div>
+        <div *ngIf="isLoggedIn"><span style="color: white;font-weight: bold;text-shadow: aliceblue;">Welcome : &nbsp;{{userName}} &nbsp;&nbsp;</span>
+            <button class="btn btn-outline-success" type="submit"(click)="onLogOut()">Logout</button>
+        </div>
+    </div>
+</nav>
