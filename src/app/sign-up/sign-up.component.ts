@@ -10,6 +10,7 @@ import { DataserviceService } from '../dataservice.service';
 export class SignUpComponent implements OnInit {
   myReactiveForm:FormGroup;
   formStatus;
+  isShow = true;
   constructor(private _dataservice:DataserviceService) {
    }
 
@@ -36,6 +37,25 @@ export class SignUpComponent implements OnInit {
   this._dataservice.isLoggedIn.next(true);
   this._dataservice.isFooterBlock.next(true);
   this._dataservice.isHeaderBlock.next(true);
+  }
+
+  showPassword(data){
+    this.isShow = false;
+    if(data.type === "password"){
+      data.type = Text;
+    }
+    else{
+      data.type = "password";
+    }
+  }
+  hidePassword(data){
+    this.isShow = true;
+    if(data.type === "password"){
+      data.type = Text;
+    }
+    else{
+      data.type = "password";
+    }
   }
 
 }

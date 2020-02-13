@@ -38,7 +38,7 @@ export class SearchedMovieComponent implements OnInit, OnDestroy {
     this.movies= this._dataservice.movieList;                                      // import movie list from data service
     this.recievedMovie = this._dataservice.selectedMovie;                          // selected Movie part
 
-    //  console.log(this.movies);
+     console.log(this.movies);
     this.movies.forEach(movie=>{
        if(movie.isFeatured=="true"){
        this.filterMovie.push(movie);

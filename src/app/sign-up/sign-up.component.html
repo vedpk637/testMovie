@@ -5,22 +5,28 @@
              <!--Form Group Starts here-->
             <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()" #formdata="ngForm">
               <h3 style="text-align: center;text-shadow: 1 1 13px black;"><b>Sign Up</b></h3>
-              <div class="form-group pt-5 py-2">
-                <input class="form-control form-control-sm mt-4 " formControlName="fullname" placeholder="Full Name*" #uname>
+              <div class="form-group pt-5 ">
+                <input class="form-control form-control mt-4 " formControlName="fullname" placeholder="Full Name*" #uname>
                 <small style="font-size: 11px; margin-left: 5px; color: red;"
                  *ngIf="!myReactiveForm.get('fullname').valid  && myReactiveForm.get('fullname').touched">Enter Full Name*
                 </small>
               </div>
               <!-- for email control -->
-              <div class="form-group py-2">
-                <input class="form-control form-control-sm" formControlName="email" placeholder="Email Address*">
+              <div class="form-group ">
+                <input class="form-control form-control" formControlName="email" placeholder="Email Address*">
                 <small style="font-size: 12px; margin-left: 5px; color: red;"
                  *ngIf="!myReactiveForm.get('email').valid && myReactiveForm.get('email').touched">Enter Valid Email Id*
-                </small>
-              </div>
-              <!-- for password control -->
-              <div class="form-group py-2">
-                <input class="form-control form-control-sm" formControlName="password" placeholder="Password*">
+                </small> 
+              </div> 
+              <!-- for password control --> 
+              <div class="form-group "> 
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="password" placeholder="Password*" type="password" #pass>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary btn-sm" type="button" id="button-addon2" *ngIf ="isShow" (click)="showPassword(pass)">Show</button>
+                    <button class="btn btn-outline-secondary btn-sm" type="button" id="button-addon2" *ngIf ="!isShow" (click)="hidePassword(pass)">Hide&nbsp;</button>
+                  </div>
+                </div>
                 <small style="font-size: 12px; margin-left: 5px; color: rgb(24, 245, 54);"><b>*Atleast 8 character long,Must have an Upper Case and an Integer*</b></small>
               </div>
               <!--Submit Button starts-->
@@ -31,6 +37,8 @@
               <!--Submit Button ends-->
             </form>
             <!--Form Group ends here-->
+            
+
           </div>
       </div>  
     </div>

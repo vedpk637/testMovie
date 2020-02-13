@@ -7,14 +7,18 @@ import { DataserviceService } from '../dataservice.service';
   styleUrls: ['./moviescomp.component.css']
 })
 export class MoviescompComponent implements OnInit {
+  isName:boolean;
+  isYear:boolean;
+  isRating:boolean;
   isRated: boolean = false;
   movieList = [];
   p: number;
-  searchText;
+  searchText="";
   firstNameclick: boolean;
   sortByYearclick: boolean;
   sortByRateclick:boolean;
   isGreater:boolean;
+
   constructor(private _movieList: DataserviceService) {
 
   }
@@ -32,6 +36,9 @@ export class MoviescompComponent implements OnInit {
 
 
   sortByName() {
+    this.isName = true;
+    this.isRating=false;
+    this.isYear=false;
     if (this.firstNameclick == true) {
       this.movieList.sort(function (a, b) {
         var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase()
@@ -58,6 +65,9 @@ export class MoviescompComponent implements OnInit {
   
    //sort By Year Starts---->//
   sortByYear() {
+    this.isName=false;
+    this.isRating=false;
+    this.isYear=true;
     if (this.sortByYearclick == true) {
       return this.movieList.sort((a, b) => {
         this.sortByYearclick =false;
@@ -73,6 +83,9 @@ export class MoviescompComponent implements OnInit {
   }
    // sort by Rating Starts --->
   sortByRating() {
+    this.isName=false;
+    this.isRating=true;
+    this.isYear=false;
     if (this.sortByRateclick == true) {
       return this.movieList.sort((a, b) => {
         this.sortByRateclick =false;

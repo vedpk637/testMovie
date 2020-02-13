@@ -18,8 +18,6 @@ import { CarouselModule } from 'ngx-bootstrap';
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +36,7 @@ import { CarouselModule } from 'ngx-bootstrap';
     ReactiveFormsModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
   ],
   schemas: [  CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA],
