@@ -2,12 +2,78 @@
 <hr>
 <!-- slider of featured movie Starts -->
 <div class="page-area">
-  <div id="#demo" class="carousel slide" data-ride="carousel">
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
+  <div class="container">
+    <carousel>
+      <slide *ngFor="let movie of filterMovie; let index=index">
+        <div class="col-md-12  mt-3" style="border: 0px;">
+          <img src="{{movie.imgurl}}" class="card-img-top" alt="..." style="height:50vh;border-radius: 10px; box-shadow: 0 0 15px black;">
+            <div class="card-body">
+              <div class="row">
+                  <h6 class="card-text" style="font-weight: 50px; text-shadow: 0 0 13px black;">{{movie.name }}&nbsp;&nbsp;&nbsp; Year : {{movie.year}}</h6>
+                <div class="ml-auto">
+                  <span class="card-text" *ngFor="let star of movie.starArray; let i = index" style="align-items: flex-end;">
+                    <i [style.color]="star.isRated ? 'SILVER': 'orange' " class="fa fa-star" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </slide>   
+    </carousel>
+  </div>
+</div> 
+<!-- slider of featured movie ends -->
+<hr>
+ 
+ <!-- selected Movie Block starts -->
+<div class="container my-4">
+  <div class="col-md-12 ">
+    <div class="row justify-content-center">
+      <div class="card col-md-9" *ngFor="let movie of recievedMovie">
+        <img src="{{movie.imgurl}}" class="img img-thumbnail" style="height: 300px;" alt="...">
+        <div class="card-body">
+          <div class="row">
+            <h6 class="card-text" routerLink="/searchedMovie">{{movie.name}} &nbsp;&nbsp;&nbsp; Year : {{movie.year}}</h6>
+          <div class="ml-auto">
+            <span class="card-text" *ngFor="let star of movie.starArray; let i = index">
+              <i [style.color]="movie.starArray[i].isRated ? 'SILVER': 'orange'" class="fa fa-star" aria-hidden="true"></i>
+            </span>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container">
+  <carousel [itemsPerSlide]="itemsPerSlide"
+          [singleSlideOffset]="true"
+          [interval]="false"
+          [indicatorsByChunk]="true">
+  <slide *ngFor="let movie of filterMovie; let index=index">
+    <img src="{{movie.imgurl}}" class="card-img-top py-2" alt="...">
+        <div class="card-body">
+          <h6 class="card-text">{{movie.name}}</h6>
+          <span class="card-text" *ngFor="let star of movie.starArray; let i = index">
+            <i [style.color]="movie.starArray[i].isRated ? 'SILVER': 'orange'" class="fa fa-star" aria-hidden="true"></i>
+          </span>
+        </div>
+  </slide>
+</carousel>
+</div>  -->
+
+
+<!-- <div id="#demo" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
   <div class="row justify-content-center">
     <div class="card col-md-2 my-4 mx-2" *ngFor = "let movie of filterMovie,index as i">
@@ -21,36 +87,11 @@
     </div>
   </div>
   </div>
-    <!-- Left and right controls -->
+    
     <a class="carousel-control-prev" routerLink="/#demo" data-slide="prev">
       <span class="carousel-control-prev-icon"></span>
     </a>
     <a class="carousel-control-next" routerLink="/#demo" data-slide="next">
       <span class="carousel-control-next-icon"></span>
     </a>
-  </div>
-</div> 
-<!-- slider of featured movie ends
-<hr>
- 
- selected Movie Block starts -->
-<div class="container my-4">
-  <div class="col-md-12 ">
-    <div class="row justify-content-center">
-      <div class="card col-md-9" *ngFor="let movie of recievedMovie">
-        <img src="{{movie.imgurl}}" class="img img-thumbnail" style="height: 300px;" alt="...">
-        <div class="card-body">
-          <div class="row">
-            <h6 class="card-text" routerLink="/searchedMovie">{{movie.name}}</h6>
-          <div class="ml-auto">
-            <span class="card-text" *ngFor="let star of movie.starArray; let i = index">
-              <i [style.color]="movie.starArray[i].isRated ? 'SILVER': 'orange'" class="fa fa-star" aria-hidden="true"></i>
-            </span>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<br><br>
+  </div> -->

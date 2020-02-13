@@ -14,7 +14,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchedMovieComponent } from './searched-movie/searched-movie.component';
-import { CarouselModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 
