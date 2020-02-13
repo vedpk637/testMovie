@@ -12,12 +12,13 @@ export class MoviescompComponent implements OnInit {
   isRating:boolean;
   isRated: boolean = false;
   movieList = [];
-  p: number;
+  p: number=1;
   searchText="";
   firstNameclick: boolean;
   sortByYearclick: boolean;
   sortByRateclick:boolean;
   isGreater:boolean;
+
 
   constructor(private _movieList: DataserviceService) {
 
@@ -105,5 +106,8 @@ export class MoviescompComponent implements OnInit {
     this._movieList.setselectedMovie(movie)
   }
 
+  searchChanges(){
+    this.p = 1;
+  }
 
 }

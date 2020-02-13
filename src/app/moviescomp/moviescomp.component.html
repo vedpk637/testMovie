@@ -3,7 +3,7 @@
         <div class="row  justify-content-center" style="background-color: rgb(113, 210, 248); height: 100px;">
             <!-- movie search box start-->
             <div class="input-group mb-3 col-md-6">
-                <input type="text" class="form-control mt-4" [(ngModel)]="searchText" placeholder="Search movies.."
+                <input type="text" class="form-control mt-4" [(ngModel)]="searchText" placeholder="Search movies.." (ngModelChange)="searchChanges()"
                     style="border-radius: 15px">
             </div>
             <!-- movie search box end-->
@@ -20,7 +20,7 @@
          <!-- movie list starts -->
         <div class="row row-cols-1 row-cols-md-3 mt-5">
             <div class="col mb-4"
-                *ngFor="let movie of (movieList | filter : searchText) | paginate: { itemsPerPage: 9, currentPage: p }; let i = index">
+                *ngFor="let movie of movieList | filter : searchText | paginate: { itemsPerPage: 9, currentPage: p }; let i = index">
                 <div class="card h-100" style="border: 0px;  border-radius: 10px; box-shadow: 0 0 13px ;">
                     <img src="{{movie.imgurl}}" class="card-img-top p-1" style="height:220px; border-radius: 10px;"
                         alt="...">
